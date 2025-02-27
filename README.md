@@ -1,13 +1,3 @@
----
-title: "Instalación Carla"
-last_modified_at: 2025-01-02T18:35:00
-categories:
-  - Blog
-tags:
-  - Intro
-  - Carla
----
-
 ## Introducción a Carla
 
 CARLA (Car Learning to Act) es un simulador *Open Source* diseñado para el desarrollo, entrenamiento y validación de algoritmos de conducción autónoma. Fue creado por el Computer Vision Center (CVC) de la Universidad Autónoma de Barcelona, en colaboración con empresas como Intel y Toyota Research.
