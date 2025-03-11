@@ -307,8 +307,6 @@ pip3 install importlib-resources
 ```
 ### setuptools version
 
-If you find this error:
-
 ```bash
 running bdist_egg
 running egg_info
@@ -335,7 +333,8 @@ Traceback (most recent call last):
 TypeError: canonicalize_version() got an unexpected keyword argument 'strip_trailing_zero'
 ```
 
-Just use a version that works such as:
+Solución:
+Utiliza una versión de setuptools que funcione, como:
 
 ```bash
 pip install setuptools==58.2.0
