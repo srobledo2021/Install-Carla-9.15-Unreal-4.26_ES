@@ -179,6 +179,19 @@ make: *** [Util/BuildTools/Linux.mk:92: PythonAPI] Error 1
 ```
 Te explico como solucionarlo [aquí](#make-pythonapi-importlib-resources-para-python-310)
 
+Si tienes un error similar a este:
+
+```bash
+File "/home/sergior/.local/lib/python3.10/site-packages/setuptools/_distutils/command/sdist.py", line 386, in prune_file_list
+    base_dir = self.distribution.get_fullname()
+  File "/home/sergior/.local/lib/python3.10/site-packages/setuptools/_core_metadata.py", line 272, in get_fullname
+    return _distribution_fullname(self.get_name(), self.get_version())
+  File "/home/sergior/.local/lib/python3.10/site-packages/setuptools/_core_metadata.py", line 290, in _distribution_fullname
+    canonicalize_version(version, strip_trailing_zero=False),
+TypeError: canonicalize_version() got an unexpected keyword argument 'strip_trailing_zero'
+```
+
+Te explico como solucionarlo [aquí](#setuptools-version)
 
 ------
 
@@ -291,4 +304,39 @@ Instala importlib-resources:
 ```bash
 pip3 install importlib-resources
 
+```
+### setuptools version
+
+If you find this error:
+
+```bash
+running bdist_egg
+running egg_info
+writing source/carla.egg-info/PKG-INFO
+writing dependency_links to source/carla.egg-info/dependency_links.txt
+writing top-level names to source/carla.egg-info/top_level.txt
+reading manifest file 'source/carla.egg-info/SOURCES.txt'
+Traceback (most recent call last):
+  File "/home/sergior/carla/PythonAPI/carla/setup.py", line 164, in <module>
+    setup(
+  File "/home/sergior/.local/lib/python3.10/site-packages/setuptools/__init__.py", line 117, in setup
+    return distutils.core.setup(**attrs)
+  File "/home/sergior/.local/lib/python3.10/site-packages/setuptools/_distutils/core.py", line 186, in setup
+ .
+ .
+ .
+    super().prune_file_list()
+  File "/home/sergior/.local/lib/python3.10/site-packages/setuptools/_distutils/command/sdist.py", line 386, in prune_file_list
+    base_dir = self.distribution.get_fullname()
+  File "/home/sergior/.local/lib/python3.10/site-packages/setuptools/_core_metadata.py", line 272, in get_fullname
+    return _distribution_fullname(self.get_name(), self.get_version())
+  File "/home/sergior/.local/lib/python3.10/site-packages/setuptools/_core_metadata.py", line 290, in _distribution_fullname
+    canonicalize_version(version, strip_trailing_zero=False),
+TypeError: canonicalize_version() got an unexpected keyword argument 'strip_trailing_zero'
+```
+
+Just use a version that works such as:
+
+```bash
+pip install setuptools==58.2.0
 ```
